@@ -8,9 +8,11 @@ class HomeRoute extends GoRouteData with $HomeRoute {
   const HomeRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => BlocProvider(
-    create: (_) => getIt<HomeCubit>()..load(),
+  Widget build(BuildContext context, GoRouterState state) => MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (_) => getIt<HomeCubit>()..load()),
+      BlocProvider(create: (context) => getIt<SectionManagerCubit>()),
+    ],
     child: const HomeScreen(),
   );
 }
-

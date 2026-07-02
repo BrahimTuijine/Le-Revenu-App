@@ -19,7 +19,9 @@ import '../../features/home/data/repositories/home_repository_impl.dart'
     as _i76;
 import '../../features/home/domain/repositories/home_repository.dart' as _i0;
 import '../../features/home/domain/usecases/get_home_content.dart' as _i593;
-import '../../features/home/presentation/cubit/home_cubit.dart' as _i9;
+import '../../features/home/presentation/cubit/home/home_cubit.dart' as _i273;
+import '../../features/home/presentation/cubit/section_manager/section_manager_cubit.dart'
+    as _i2;
 import '../api/api_consumer.dart' as _i207;
 import '../api/dio_consumer.dart' as _i82;
 import '../data/home_data.dart' as _i1029;
@@ -36,6 +38,7 @@ _i174.GetIt init(
   final dioModule = _$DioModule();
   gh.factory<_i855.ConnectivityModule>(() => _i855.ConnectivityModule());
   gh.factory<_i593.ThemeCubit>(() => _i593.ThemeCubit());
+  gh.factory<_i2.SectionManagerCubit>(() => _i2.SectionManagerCubit());
   gh.lazySingleton<_i361.Dio>(() => dioModule.dioClient);
   gh.lazySingleton<_i1029.HomeData>(() => _i1029.HomeData());
   gh.lazySingleton<_i207.ApiConsumer>(
@@ -55,7 +58,9 @@ _i174.GetIt init(
   gh.lazySingleton<_i593.GetHomeContent>(
     () => _i593.GetHomeContent(gh<_i0.HomeRepository>()),
   );
-  gh.factory<_i9.HomeCubit>(() => _i9.HomeCubit(gh<_i593.GetHomeContent>()));
+  gh.factory<_i273.HomeCubit>(
+    () => _i273.HomeCubit(gh<_i593.GetHomeContent>()),
+  );
   return getIt;
 }
 

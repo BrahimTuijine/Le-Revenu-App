@@ -15,16 +15,14 @@ class HomeSections extends StatelessWidget {
     required this.featured,
     required this.videos,
     required this.rubriques,
-    required this.selectedRubrique,
-    required this.onRubriqueSelected,
+    required this.latestArticles,
     super.key,
   });
 
   final Article featured;
   final List<VideoShort> videos;
   final List<NewsCategory> rubriques;
-  final NewsCategory? selectedRubrique;
-  final ValueChanged<NewsCategory?> onRubriqueSelected;
+  final List<Article> latestArticles;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -33,11 +31,7 @@ class HomeSections extends StatelessWidget {
       FeaturedSection(article: featured),
       VideosSection(videos: videos),
       const RubriquesHeader(),
-      RubriqueChips(
-        rubriques: rubriques,
-        selected: selectedRubrique,
-        onSelected: onRubriqueSelected,
-      ),
+      RubriqueChips(rubriques: rubriques, latestArticles: latestArticles),
       Padding(
         padding: EdgeInsets.fromLTRB(20.fw, 18.fh, 20.fw, 6.fh),
         child: SectionHeader(title: 'Dernières actualités'),

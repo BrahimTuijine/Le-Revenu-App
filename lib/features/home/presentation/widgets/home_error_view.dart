@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/context.dart';
 import '../../../../core/extensions/num.dart';
-import '../cubit/home_cubit.dart';
+import '../cubit/home/home_cubit.dart';
 
 /// Full-body error state with a retry action.
 class HomeErrorView extends StatelessWidget {

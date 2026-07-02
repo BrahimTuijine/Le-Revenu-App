@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/home_entities_export.dart';
-import '../../domain/usecases/get_home_content.dart';
+import '../../../domain/entities/home_entities_export.dart';
+import '../../../domain/usecases/get_home_content.dart';
 
 part 'home_state.dart';
 
@@ -20,12 +20,6 @@ class HomeCubit extends Cubit<HomeState> {
   /// Refresh triggered by the pull-to-refresh gesture: reloads the content
   /// without flashing the loading state.
   Future<void> refresh() => _fetch();
-
-  void selectRubrique(NewsCategory? rubrique) {
-    final current = state;
-    if (current is! HomeLoaded) return;
-    emit(HomeLoaded(content: current.content, selectedRubrique: rubrique));
-  }
 
   Future<void> _fetch() async {
     final result = await _getHomeContent();

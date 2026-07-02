@@ -6,16 +6,6 @@ import '../../../home/presentation/models/video_playlist.dart';
 import '../widgets/swipe_hint.dart';
 import '../widgets/video_short_page.dart';
 
-/// Full-screen player for the short videos, reached with a hero animation
-/// from the home rail.
-///
-/// Works like TikTok: a vertical [PageView] over the whole playlist — swipe
-/// up/down to change video. A one-shot animated hint tells the user the
-/// screen is swipeable; it disappears after a few seconds or on first swipe.
-///
-/// The playback is simulated (fake data, no real media): a controller
-/// animates the progress over the real duration of the video, and can be
-/// paused/resumed by tapping the screen.
 class VideoShortPlayerScreen extends StatefulWidget {
   const VideoShortPlayerScreen({required this.playlist, super.key});
 

@@ -1,4 +1,5 @@
-import '../../features/home/presentation/cubit/home_cubit.dart';
+import '../../features/home/presentation/cubit/home/home_cubit.dart';
+import '../../features/home/presentation/cubit/section_manager/section_manager_cubit.dart';
 import '../gen/injection.dart';
 import 'routes_export.dart';
 

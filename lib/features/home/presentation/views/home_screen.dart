@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/num.dart';
 import '../../../../core/extensions/snackbar.dart';
 import '../../../../core/shared/theme_manager_cubit.dart';
-import '../cubit/home_cubit.dart';
+import '../cubit/home/home_cubit.dart';
+import '../cubit/section_manager/section_manager_cubit.dart';
 import '../widgets/article_list_item.dart';
 import '../widgets/home_error_view.dart';
 import '../widgets/home_header.dart';
@@ -46,7 +47,6 @@ class _HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final articles = state.visibleArticles;
     return RefreshIndicator(
       onRefresh: context.read<HomeCubit>().refresh,
       child: SingleChildScrollView(
@@ -61,15 +61,24 @@ class _HomeContent extends StatelessWidget {
               featured: state.content.featured,
               videos: state.content.videoShorts,
               rubriques: state.rubriques,
-              selectedRubrique: state.selectedRubrique,
-              onRubriqueSelected: context.read<HomeCubit>().selectRubrique,
+              latestArticles: state.content.latestArticles,
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: articles.length,
-              itemBuilder: (context, index) =>
-                  ArticleListItem(article: articles[index]),
+            BlocBuilder<SectionManagerCubit, SectionManagerState>(
+              builder: (context, sectionManagerstate) =>
+                  sectionManagerstate.when(
+                    data: (_, visibleArticles) {
+                      final articles = visibleArticles.isNotEmpty
+                          ? visibleArticles
+                          : state.content.latestArticles;
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: articles.length,
+                        itemBuilder: (context, index) =>
+                            ArticleListItem(article: articles[index]),
+                      );
+                    },
+                  ),
             ),
           ],
         ),
