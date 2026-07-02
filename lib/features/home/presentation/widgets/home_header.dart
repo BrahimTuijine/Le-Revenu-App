@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context.dart';
 import '../../../../core/extensions/date_time.dart';
+import '../../../../core/extensions/num.dart';
 
 /// Masthead of the home page: current date, brand title and quick actions
 /// (search, light/dark theme switch).
@@ -57,7 +58,7 @@ class HomeHeader extends StatelessWidget {
                     tooltip: 'Rechercher',
                     onTap: onSearchTap,
                   ),
-                  const SizedBox(width: 14),
+                  14.fw.bw,
                   _HeaderAction(
                     icon: isDark
                         ? Icons.light_mode_outlined

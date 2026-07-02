@@ -22,6 +22,7 @@ import '../../features/home/domain/usecases/get_home_content.dart' as _i593;
 import '../../features/home/presentation/cubit/home_cubit.dart' as _i9;
 import '../api/api_consumer.dart' as _i207;
 import '../api/dio_consumer.dart' as _i82;
+import '../data/home_data.dart' as _i1029;
 import '../network/network.dart' as _i855;
 import '../shared/theme_manager_cubit.dart' as _i593;
 
@@ -36,9 +37,7 @@ _i174.GetIt init(
   gh.factory<_i855.ConnectivityModule>(() => _i855.ConnectivityModule());
   gh.factory<_i593.ThemeCubit>(() => _i593.ThemeCubit());
   gh.lazySingleton<_i361.Dio>(() => dioModule.dioClient);
-  gh.lazySingleton<_i299.HomeLocalDataSource>(
-    () => const _i299.FakeHomeLocalDataSource(),
-  );
+  gh.lazySingleton<_i1029.HomeData>(() => _i1029.HomeData());
   gh.lazySingleton<_i207.ApiConsumer>(
     () => _i82.DioConsumer(dio: gh<_i361.Dio>()),
   );
@@ -46,6 +45,9 @@ _i174.GetIt init(
     () => _i855.NetworkInfoImpl(
       connectivityResult: gh<_i855.ConnectivityModule>(),
     ),
+  );
+  gh.lazySingleton<_i299.HomeLocalDataSource>(
+    () => _i299.FakeHomeLocalDataSource(homeData: gh<_i1029.HomeData>()),
   );
   gh.lazySingleton<_i0.HomeRepository>(
     () => _i76.HomeRepositoryImpl(gh<_i299.HomeLocalDataSource>()),

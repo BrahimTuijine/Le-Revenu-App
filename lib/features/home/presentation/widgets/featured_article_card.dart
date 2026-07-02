@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context.dart';
 import '../../../../core/extensions/date_time.dart';
+import '../../../../core/extensions/num.dart';
 import '../../domain/entities/home_entities_export.dart';
 import '../extensions/news_category_ui.dart';
 
@@ -24,7 +25,7 @@ class FeaturedArticleCard extends StatelessWidget {
     child: ClipRRect(
       borderRadius: BorderRadius.circular(14),
       child: SizedBox(
-        height: 200,
+        height: 200.fh,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -63,7 +64,7 @@ class FeaturedArticleCard extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(height: 7),
+                      7.fh.bh,
                       Text(
                         '${article.publishedAt.frenchTimeAgo} · '
                         '${article.readingMinutes} min de lecture',

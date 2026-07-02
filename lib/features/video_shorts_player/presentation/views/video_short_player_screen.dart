@@ -5,10 +5,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/extensions/context.dart';
 import '../../../../core/extensions/duration.dart';
-import '../../domain/entities/home_entities_export.dart';
-import '../extensions/news_category_ui.dart';
-import '../models/video_playlist.dart';
-import '../widgets/video_short_card.dart';
+import '../../../../core/extensions/num.dart';
+import '../../../home/domain/entities/home_entities_export.dart';
+import '../../../home/presentation/extensions/news_category_ui.dart';
+import '../../../home/presentation/models/video_playlist.dart';
+import '../../../home/presentation/widgets/video_short_card.dart';
 
 /// Full-screen player for the short videos, reached with a hero animation
 /// from the home rail.
@@ -201,7 +202,7 @@ class _VideoShortPageState extends State<_VideoShortPage>
                       color: context.primary,
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  6.fh.bh,
                   Text(
                     video.title,
                     style: context.display.copyWith(
@@ -210,9 +211,9 @@ class _VideoShortPageState extends State<_VideoShortPage>
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 14),
+                  14.fh.bh,
                   _PlaybackProgress(playback: _playback, video: video),
-                  const SizedBox(height: 8),
+                  8.fh.bh,
                 ],
               ),
             ),
@@ -264,7 +265,7 @@ class _SwipeHintState extends State<_SwipeHint>
           color: Colors.white,
         ),
       ),
-      const SizedBox(height: 2),
+      2.fh.bh,
       Text(
         'Glissez pour changer de vidéo',
         style: context.h7.copyWith(
@@ -305,7 +306,7 @@ class _PlaybackProgress extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          8.fh.bh,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

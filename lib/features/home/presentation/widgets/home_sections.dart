@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/extensions/num.dart';
 import '../../../../core/shared/widgets/section_header.dart';
 import '../../domain/entities/home_entities_export.dart';
 import 'featured_section.dart';
@@ -37,8 +38,8 @@ class HomeSections extends StatelessWidget {
         selected: selectedRubrique,
         onSelected: onRubriqueSelected,
       ),
-      const Padding(
-        padding: EdgeInsets.fromLTRB(20, 18, 20, 6),
+      Padding(
+        padding: EdgeInsets.fromLTRB(20.fw, 18.fh, 20.fw, 6.fh),
         child: SectionHeader(title: 'Dernières actualités'),
       ),
     ],

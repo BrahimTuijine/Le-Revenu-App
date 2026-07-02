@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/extensions/num.dart';
 import '../../../../core/extensions/snackbar.dart';
 import '../../../../core/shared/widgets/eyebrow_text.dart';
 import '../../domain/entities/home_entities_export.dart';
@@ -18,7 +19,7 @@ class FeaturedSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const EyebrowText('À la une'),
-        const SizedBox(height: 8),
+        8.fh.bh,
         FeaturedArticleCard(
           article: article,
           onTap: () => context.showComingSoon("L'article"),

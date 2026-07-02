@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/extensions/num.dart';
 import '../../../../core/shared/widgets/app_chip.dart';
 import '../../domain/entities/news_category.dart';
 
@@ -20,12 +21,12 @@ class RubriqueChips extends StatelessWidget {
   Widget build(BuildContext context) {
     final filters = [null, ...rubriques];
     return SizedBox(
-      height: 34,
+      height: 34.fh,
       child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20.fw),
         scrollDirection: Axis.horizontal,
         itemCount: filters.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 8),
+        separatorBuilder: (_, _) => 8.fw.bw,
         itemBuilder: (_, index) {
           final rubrique = filters[index];
           return AppChip(

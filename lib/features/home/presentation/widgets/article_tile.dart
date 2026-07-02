@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context.dart';
 import '../../../../core/extensions/date_time.dart';
+import '../../../../core/extensions/num.dart';
 import '../../../../core/shared/widgets/eyebrow_text.dart';
 import '../../domain/entities/home_entities_export.dart';
 import '../extensions/news_category_ui.dart';
@@ -19,7 +20,7 @@ class ArticleTile extends StatelessWidget {
     onTap: onTap,
     behavior: HitTestBehavior.opaque,
     child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: EdgeInsets.symmetric(vertical: 14.fh),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,7 +29,7 @@ class ArticleTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 EyebrowText(article.category.label),
-                const SizedBox(height: 4),
+                4.fh.bh,
                 Text(
                   article.title,
                   maxLines: 3,
@@ -40,7 +41,7 @@ class ArticleTile extends StatelessWidget {
                     color: context.heading,
                   ),
                 ),
-                const SizedBox(height: 6),
+                6.fh.bh,
                 Text(
                   '${article.publishedAt.frenchTimeAgo} · '
                   '${article.readingMinutes} min',
@@ -52,7 +53,7 @@ class ArticleTile extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 14),
+          14.fh.bw,
           _ArticleThumbnail(category: article.category),
         ],
       ),

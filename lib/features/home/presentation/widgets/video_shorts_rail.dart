@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context.dart';
+import '../../../../core/extensions/num.dart';
 import '../../domain/entities/home_entities_export.dart';
 import 'video_short_card.dart';
 
@@ -21,11 +22,11 @@ class VideoShortsRail extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+        padding: EdgeInsets.fromLTRB(20.fw, 20.fh, 20.fw, 12.fh),
         child: Row(
           children: [
-            Container(width: 8, height: 8, color: context.primary),
-            const SizedBox(width: 8),
+            Container(width: 8.fw, height: 8.fw, color: context.primary),
+            8.fw.bw,
             Text(
               "L'actualité en vidéos courtes",
               style: context.display.copyWith(
@@ -40,15 +41,12 @@ class VideoShortsRail extends StatelessWidget {
         height: VideoShortCard.height,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.fw),
           itemCount: videos.length,
-          separatorBuilder: (_, _) => const SizedBox(width: 11),
+          separatorBuilder: (_, _) => 11.fw.bw,
           itemBuilder: (_, index) {
             final video = videos[index];
-            return VideoShortCard(
-              video: video,
-              onTap: () => onVideoTap(video),
-            );
+            return VideoShortCard(video: video, onTap: () => onVideoTap(video));
           },
         ),
       ),

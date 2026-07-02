@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/extensions/num.dart';
 import '../../../../core/extensions/snackbar.dart';
-import '../../../../core/gen/injection.dart';
 import '../../../../core/shared/theme_manager_cubit.dart';
 import '../cubit/home_cubit.dart';
 import '../widgets/article_list_item.dart';
@@ -12,16 +12,6 @@ import '../widgets/home_sections.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (_) => getIt<HomeCubit>()..load(),
-    child: const _HomeView(),
-  );
-}
-
-class _HomeView extends StatelessWidget {
-  const _HomeView();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -66,7 +56,7 @@ class _HomeContent extends StatelessWidget {
         physics: const AlwaysScrollableScrollPhysics(
           parent: BouncingScrollPhysics(),
         ),
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: EdgeInsets.only(bottom: 24.fh),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
