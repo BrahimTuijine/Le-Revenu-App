@@ -39,9 +39,6 @@ class HomeScreen extends StatelessWidget {
   );
 }
 
-/// Scrollable body of the page: a [SingleChildScrollView] with the page
-/// sections ([HomeSections]) followed by the "Dernières actualités" feed,
-/// which is the only [ListView.builder]. The rubrique chips filter the feed.
 class _HomeContent extends StatelessWidget {
   const _HomeContent({required this.state});
 
@@ -69,8 +66,6 @@ class _HomeContent extends StatelessWidget {
             ),
             ListView.builder(
               shrinkWrap: true,
-              // The page scrolls as a whole; the feed must not scroll on
-              // its own inside it.
               physics: const NeverScrollableScrollPhysics(),
               itemCount: articles.length,
               itemBuilder: (context, index) =>
