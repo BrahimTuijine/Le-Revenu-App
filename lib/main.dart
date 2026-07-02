@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     child: BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, mode) => Sizer(
         builder: (context, _, _) => MaterialApp.router(
-          debugShowCheckedModeBanner: kDebugMode || kProfileMode,
+          debugShowCheckedModeBanner: false,
           themeMode: mode,
           theme: LerevenuTheme.lightTheme,
           darkTheme: LerevenuTheme.darkTheme,
