@@ -15,11 +15,4 @@ class Article {
   final NewsCategory category;
   final DateTime publishedAt;
   final int readingMinutes;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is Article && other.id == id;
-
-  @override
-  int get hashCode => id.hashCode;
 }

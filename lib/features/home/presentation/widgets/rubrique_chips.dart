@@ -4,7 +4,6 @@ import '../../../../core/extensions/num.dart';
 import '../../../../core/shared/widgets/app_chip.dart';
 import '../../domain/entities/news_category.dart';
 
-/// Horizontal list of rubrique filters. `null` stands for "Tous".
 class RubriqueChips extends StatelessWidget {
   const RubriqueChips({
     required this.rubriques,
